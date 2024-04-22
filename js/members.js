@@ -95,11 +95,11 @@ async function displayProfileCards(){
                       <td class="px-2 py-2">${profile.email}</td>
                   </tr>
                   <tr>
-                      <td class="px-2 py-2 text-gray-500 font-semibold">Profilehip:</td>
-                      <td class="px-2 py-2">${profile.profilehipSatus}</td>
+                      <td class="px-2 py-2 text-gray-500 font-semibold">membership:</td>
+                      <td class="px-2 py-2">${profile.membershipSatus}</td>
                   </tr>
                   <tr>
-                  <td class="px-2 py-2 text-gray-500 font-semibold">Batch:</td>
+                  <td class="px-2 py-2 text-gray-500 font-semibold">bloodGroup:</td>
                   <td class="px-2 py-2">${profile.bloodGroup}</td>
               </tr>
                   
