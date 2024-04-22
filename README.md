@@ -1,0 +1,1 @@
+# static.jnuits.org.bd
