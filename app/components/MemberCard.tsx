@@ -107,7 +107,7 @@ export const MemberCard = ({ profile }: { profile: any }) => {
         {/* Information */}
         <div className="grid grid-cols-2 gap-3">
           {/* Membership */}
-          <div className="rounded-xl bg-gray-50 p-3">
+          <div className="rounded-lg bg-emerald-50 p-3">
             <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
               Membership
             </p>
@@ -122,7 +122,7 @@ export const MemberCard = ({ profile }: { profile: any }) => {
           </div>
 
           {/* Blood Group */}
-          <div className="rounded-xl bg-gray-50 p-3">
+          <div className="rounded-lg bg-rose-50 p-3">
             <p className="text-xs font-medium uppercase tracking-wide text-gray-500">
               Blood Group
             </p>
@@ -130,7 +130,7 @@ export const MemberCard = ({ profile }: { profile: any }) => {
             <div className="mt-1 flex items-center gap-1.5">
               <Droplets className="h-4 w-4 text-red-500" />
 
-              <p className="text-sm font-semibold text-gray-800">
+              <p className="text-sm font-semibold text-red-800">
                 {profile.bloodGroup}
               </p>
             </div>
