@@ -1,96 +1,3 @@
-// import { useEffect, useState } from "react";
-// import { useSearchParams } from "react-router";
-// import { YearFilter } from "~/components/YearFilter";
-// import { MemberCard } from "~/components/MemberCard";
-// import { MemberSearch } from "~/components/SearchBar";
-// import { filterMembers } from "~/lib/filterMembers";
-// import { getMembers } from "~/lib/getMembers";
-// import type { Route } from "./+types/memberDirectory";
-// import { EmptyContentComponent } from "~/components/EmptyState";
-
-// export async function loader({}: Route.LoaderArgs) {
-//   const data = await getMembers();
-//   return data;
-// }
-
-// export default function MemberDirectory({ loaderData }: Route.ComponentProps) {
-//   let members = loaderData.generalMember;
-//   const years = ["2022", "2023", "2024", "2025", "2026"];
-
-//   const [searchParams, setSearchParams] = useSearchParams();
-
-//   // URL থেকে মান পড়া (না থাকলে default)
-//   const year = searchParams.get("year") ?? "all";
-//   const category = searchParams.get("category") ?? "all";
-
-//   // ১. ইনপুট ফিল্ডকে দ্রুত রেসপন্স করানোর জন্য একটি Local State ডিক্লেয়ার করুন
-//   const [localSearch, setLocalSearch] = useState(searchParams.get("q") ?? "");
-
-//   // ২. Debounce লজিক: ইউজার টাইপ থামানোর ৩০০ মিলি সেকেন্ড পর URL আপডেট হবে
-//   useEffect(() => {
-//     const handler = setTimeout(() => {
-//       setSearchParams((prev) => {
-//         if (localSearch) {
-//           prev.set("q", localSearch);
-//         } else {
-//           prev.delete("q");
-//         }
-//         return prev;
-//       });
-//     }, 300); // 300ms delay
-
-//     // ইউজার যদি ৩০০ মিলি সেকেন্ডের আগে আবার টাইপ করে, তবে আগের টাইমার ক্যানসেল হয়ে যাবে
-//     return () => clearTimeout(handler);
-//   }, [localSearch, setSearchParams]);
-
-//   const filtered = filterMembers({
-//     members,
-//     search: localSearch, // URL এর বদলে এখন localSearch ব্যবহার করছি
-//     year,
-//     category,
-//   });
-
-//   return (
-//     <>
-//       <div className="flex items-center gap-4 justify-center pt-16 pb-4">
-//         <YearFilter
-//           value={year}
-//           onChange={(val) =>
-//             setSearchParams((prev) => {
-//               if (val === "all") {
-//                 prev.delete("year"); // "All Years" সিলেক্ট করলে URL থেকে year মুছে যাবে
-//               } else {
-//                 prev.set("year", val); // নির্দিষ্ট বছর সিলেক্ট করলে URL এ year সেট হবে
-//               }
-//               return prev;
-//             })
-//           }
-//           years={years}
-//         />
-
-//         <MemberSearch
-//           value={localSearch}
-//           onChange={(val) => setLocalSearch(val)}
-//         />
-//       </div>
-//       <div
-//         className={`flex items-center justify-center ${filtered.length === 0 ? "flex items-center justify-center" : " pt-16 pb-4"}`}
-//       >
-//         <div
-//           className={` ${filtered.length === 0 ? "flex items-center justify-center" : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"}  p-5`}
-//         >
-//           {filtered.length === 0 ? (
-//             <EmptyContentComponent />
-//           ) : (
-//             filtered.map((profile: any) => (
-//               <MemberCard key={profile.Id} profile={profile} />
-//             ))
-//           )}
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
@@ -193,7 +100,7 @@ export default function MemberDirectory({ loaderData }: Route.ComponentProps) {
 
       {/* ফিল্টার এবং সার্চ বার (ওয়েভের একটু ওপর দিয়ে ওভারল্যাপ করা হয়েছে) */}
       <div className="flex flex-col sm:flex-row items-center gap-4 justify-center -mt-16 relative z-20 px-4 ">
-        <div className="bg-linear-to-tr from-white-100 to-blue-300 p-3 rounded-2xl shadow-xl border border-gray-100 flex flex-col sm:flex-row gap-4 w-full max-w-3xl">
+        <div className="bg-linear-to-tr from-white-100 to-blue-300 p-3 px-5 rounded-2xl shadow-xl  justify-between flex flex-col sm:flex-row gap-4 w-full max-w-5xl">
           <YearFilter
             value={year}
             onChange={(val) =>

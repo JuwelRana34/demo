@@ -15,9 +15,16 @@ export function MemberSearch({
   placeholder = "Search members by name,email and ID ...",
 }: MemberSearchProps) {
   return (
-    <div className="relative w-full max-w-xl flex items-center ">
-      <Search
-        className="
+    <div className="flex items-center gap-3 w-full">
+      <label
+        htmlFor="member-search"
+        className="block mb-2 text-sm font-medium text-gray-900"
+      >
+        Search Here:
+      </label>
+      <div className="relative w-full max-w-xl flex items-center ">
+        <Search
+          className="
           pointer-events-none
           absolute left-3 top-1/2
           size-4
@@ -25,13 +32,14 @@ export function MemberSearch({
           text-gray-500
            z-50
         "
-      />
+        />
 
-      <Input
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-        placeholder={placeholder}
-        className="
+        <Input
+          id="member-search"
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          placeholder={placeholder}
+          className="
           h-11
           w-full
           rounded
@@ -43,20 +51,20 @@ export function MemberSearch({
           shadow-sm
           transition-all
           duration-200
-          placeholder:text-gray-400
+          placeholder:text-gray-500
           focus:border-blue-500
           focus:ring-2
           focus:ring-blue-500/10
         "
-      />
+        />
 
-      {value && (
-        <Button
-          type="button"
-          variant="ghost"
-          size="icon"
-          onClick={() => onChange("")}
-          className="
+        {value && (
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            onClick={() => onChange("")}
+            className="
             absolute
             right-1.5
             top-1/2
@@ -67,11 +75,12 @@ export function MemberSearch({
             hover:bg-gray-100
             hover:text-gray-700
           "
-          aria-label="Clear search"
-        >
-          <X className="size-4" />
-        </Button>
-      )}
+            aria-label="Clear search"
+          >
+            <X className="size-4" />
+          </Button>
+        )}
+      </div>
     </div>
   );
 }
