@@ -16,7 +16,7 @@ export async function loader({}: Route.LoaderArgs) {
 
 export default function MemberDirectory({ loaderData }: Route.ComponentProps) {
   let members = loaderData.generalMember;
-  const years = ["2022", "2023", "2024", "2025", "2026 ","2027"];
+  const years = ["2022", "2023", "2024", "2025","2026","2027"];
 
   const [searchParams, setSearchParams] = useSearchParams();
 
