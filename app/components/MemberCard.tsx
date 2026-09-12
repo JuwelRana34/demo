@@ -49,12 +49,13 @@ export const MemberCard = ({ profile }: { profile: any }) => {
   "
           >
             <div className="rounded-full bg-white p-0.75">
+              {profile.Image === "N/A" ? <img src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" alt={profile.name} className="h-28 w-28 rounded-full object-cover" /> :
               <img
                 src={`https://lh3.googleusercontent.com/d/${profile.Image}`}
                 alt={profile.name}
                 referrerPolicy="no-referrer"
                 className="h-28 w-28 rounded-full object-cover"
-              />
+              /> }
             </div>
           </div>
 
